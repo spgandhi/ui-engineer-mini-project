@@ -1,0 +1,6 @@
+.app-search-wrapper {
+  @apply flex gap-x-6 mb-10;
+  input {
+    @apply block flex-1;
+  }
+}

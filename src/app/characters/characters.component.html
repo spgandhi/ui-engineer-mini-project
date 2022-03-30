@@ -1,19 +1,22 @@
-<input name="name-search" placeholder="Search By Name" type="text" autocomplete="off" [(ngModel)]="searchTerm" />
+<div>
 
-<span (click)="getCharacters(1)">Search</span>
+  <div class="app-search-wrapper">
+    <input name="name-search" placeholder="Search By Name" type="text" autocomplete="off" [(ngModel)]="searchTerm" />
+    <button class="wide" (click)="getCharacters(1)">Search</button>
+  </div>
 
-<table *ngIf="characterCall">
+  <table *ngIf="characterCall">
     <tbody *ngIf="characterCall.results">
-        <tr *ngFor="let c of characterCall.results" [routerLink]="['/character', c.id]" [queryParams]="{ fromPage : currentPage, nameSearch : searchTerm }">
-            <td>{{c.name}}</td>
-            <td>{{c.species}}</td>
-            <td>{{c.status}}</td>
-            <td>{{c.gender}}</td>
-        </tr>
+      <tr *ngFor="let c of characterCall.results" [routerLink]="['/character', c.id]" [queryParams]="{ fromPage : currentPage, nameSearch : searchTerm }">
+        <td>{{c.name}}</td>
+        <td>{{c.species}}</td>
+        <td>{{c.status}}</td>
+        <td>{{c.gender}}</td>
+      </tr>
     </tbody>
-</table>
+  </table>
 
-
-<ng-container *ngIf="pages">
+  <ng-container *ngIf="pages">
     <span *ngFor="let p of pages" [ngClass]="{'active': (p === currentPage)}" (click)="getCharacters(p)">{{p}}</span>
-</ng-container>
+  </ng-container>
+</div>

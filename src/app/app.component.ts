@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-        if (params.fromPage)  {
+        if (params.fromPage) {
           const cPageNum = Number(params.fromPage);
           if (!Number.isNaN(cPageNum)) {
             this.characterPage = cPageNum;
