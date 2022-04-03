@@ -1,14 +1,10 @@
 <div class="app-header">
   <h1>The Rick and Morty</h1>
 </div>
-
 <div class="app-container">
-
   <div class="app-nav">
     <a routerLink="/characters" [queryParams]="{ fromPage : characterPage, nameSearch : characterNameSearch }" [ngClass]="{'nav-link': true, 'active': location.path().indexOf('/character') > -1 }">Characters</a>
     <a routerLink="/episodes" [ngClass]="{'nav-link': true, 'active': location.path().indexOf('/episode') > -1 }">Episode Guide</a>
   </div>
-
   <router-outlet></router-outlet>
-
 </div>

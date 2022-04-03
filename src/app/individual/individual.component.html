@@ -1,8 +1,13 @@
 <div class="container individual" *ngIf="character">
-  <div class="row max-w-[600px] mx-auto">
-    <div class="col-lg-12 text-center">
+  <div class="max-w-[600px] mx-auto flex flex-col gap-y-8">
+    <div>
+      <a class="with-icon" [routerLink]="['/characters']">
+        <left-arrow-icon></left-arrow-icon> Go Back
+      </a>
+    </div>
+    <div class="text-center">
       <div class="card">
-        <img [src]="character.image" alt="{{character.name}}" id="character-portrait" class="card-img-top" />
+        <img [src]="character.image" alt="{{character.name}}" id="character-portrait" class="rounded-[100px] w-[300px] mx-auto" />
         <div class="card-body">
           <h3 class="card-title">{{character.name}}</h3>
           <div class="card-subtitle">
@@ -12,14 +17,14 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-between mt-8">
-        <a class="with-icon" [routerLink]="['/character', id - 1]">
-          <left-arrow-icon></left-arrow-icon> Previous
-        </a>
-        <a class="with-icon" [routerLink]="['/character', id + 1]">
-          Next <right-arrow-icon></right-arrow-icon>
-        </a>
-      </div>
+    </div>
+    <div class="flex justify-between">
+      <a class="with-icon" [routerLink]="['/character', id - 1]">
+        <left-arrow-icon></left-arrow-icon> Previous
+      </a>
+      <a class="with-icon" [routerLink]="['/character', id + 1]">
+        Next <right-arrow-icon></right-arrow-icon>
+      </a>
     </div>
   </div>
 </div>

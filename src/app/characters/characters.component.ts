@@ -8,8 +8,7 @@ import helper from './helper';
 
 @Component({
   selector: 'characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss']
+  templateUrl: './characters.component.html'
 })
 export class CharactersComponent implements OnInit {
   characterCall: CharacterApiResponse;
@@ -67,6 +66,5 @@ export class CharactersComponent implements OnInit {
       relativeTo: this.route,
       queryParamsHandling: 'merge'
     })
-
   }
 }

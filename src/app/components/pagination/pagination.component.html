@@ -1,14 +1,14 @@
 <div class="app-pagination-wrapper">
-  <a [ngClass]="{'disabled': (data.currentPage === 1)}" (click)="handlePageChange(data.currentPage - 1)">
+  <a [ngClass]="{'disabled pointer-events-none cursor-not-allowed': (data.currentPage === 1)}" (click)="handlePageChange(data.currentPage - 1)">
     <left-arrow-icon></left-arrow-icon>
   </a>
   <div class="flex items-center justify-center gap-x-2">
     Page
-    <select [(ngModel)]="pageNumberInput" (change)="handlePageChange(pageNumberInput)">
+    <select class="w-[64px]" [(ngModel)]="data.currentPage" (change)="handlePageChange(data.currentPage)">
         <option *ngFor="let p of [].constructor(data.totalPages); let i = index" [ngValue]="i+1">{{i+1}}</option>
       </select>
   </div>
-  <a [ngClass]="{'disabled': (data.totalPages === data.currentPage)}" (click)="handlePageChange(data.currentPage + 1)">
+  <a [ngClass]="{'disabled pointer-events-none cursor-not-allowed': (data.totalPages === data.currentPage)}" (click)="handlePageChange(data.currentPage + 1)">
     <right-arrow-icon></right-arrow-icon>
   </a>
 </div>

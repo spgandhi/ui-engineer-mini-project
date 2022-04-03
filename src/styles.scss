@@ -41,34 +41,34 @@
   }
   h1,
   .h1 {
-    @apply text-6xl;
+    @apply text-4xl md:text-6xl;
   }
   h2,
   .h2 {
-    @apply text-5xl;
+    @apply text-3xl md:text-5xl;
   }
   h3,
   .h3 {
-    @apply text-4xl;
+    @apply text-2xl md:text-4xl;
   }
   h4,
   .h4 {
-    @apply text-3xl;
+    @apply text-xl md:text-3xl;
   }
   h5,
   .h5 {
-    @apply text-2xl;
+    @apply text-lg md:text-2xl;
   }
   h6,
   .h6 {
-    @apply text-xl;
+    @apply text-base md:text-xl;
   }
   input,
   select {
     @apply rounded-md px-4 py-3 text-neutral-100;
   }
   .app-container {
-    @apply container mx-auto max-w-[1024px];
+    @apply container mx-4 md:mx-auto max-w-[1024px];
   }
   button,
   button[type=submit] {
@@ -118,6 +118,17 @@
         @apply text-primary-40;
         @apply border-b border-primary-40
       }
+    }
+  }
+  .card {
+    margin: 0px auto;
+    max-width: 600px;
+    @apply bg-neutral-40 rounded-xl p-8;
+    & .card-body {
+      @apply pt-12 py-4 flex flex-col gap-y-4;
+    }
+    & .card-subtitle {
+      @apply flex justify-center gap-x-4;
     }
   }
 }

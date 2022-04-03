@@ -6,15 +6,11 @@ import { PaginationObject } from 'src/app/api_responses/paginationObject';
   templateUrl: './pagination.component.html',
 })
 export class Pagination implements OnInit {
+
   @Input() data: PaginationObject;
   @Output() onPageChange = new EventEmitter<number>();
 
-  pageNumberInput: number;
-
-  constructor() { }
-  ngOnInit(): void {
-    this.pageNumberInput = this.data.currentPage;
-  }
+  ngOnInit(): void { }
 
   handlePageChange(page: number): void {
     this.onPageChange.emit(page);

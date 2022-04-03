@@ -1,20 +1,14 @@
-<div class="flex flex-col gap-y-8">
-
-  <div class="flex justify-between items-center">
-    <form class="app-search-wrapper">
-      <input name="name-search" placeholder="Search By Name" type="text" autocomplete="off" [(ngModel)]="searchTerm" (keyup)="handleSearch()" />
+<div class="flex flex-col gap-y-8 overflow-scroll">
+  <div class="flex justify-between md:items-center">
+    <form class="flex gap-x-6">
+      <input class="block md:flex-1" name="name-search" placeholder="Search By Name" type="text" autocomplete="off" [(ngModel)]="searchTerm" (keyup)="handleSearch()" />
     </form>
-
     <ng-container *ngIf="paginationObject">
       <pagination [data]="paginationObject" (onPageChange)="handlePageChange($event)"></pagination>
     </ng-container>
-
   </div>
-
   <div class="" *ngIf="searchTerm">showing results for "{{searchTerm}}"</div>
-
   <div *ngIf="errorMessage">{{errorMessage}}</div>
-
   <table *ngIf="characterCall" class="clickable w-full">
     <tbody *ngIf="characterCall.results">
       <tr *ngFor="let c of characterCall.results" [routerLink]="['/character', c.id]" [queryParams]="{ fromPage : paginationObject.currentPage, nameSearch : searchTerm }">
@@ -25,5 +19,4 @@
       </tr>
     </tbody>
   </table>
-
 </div>

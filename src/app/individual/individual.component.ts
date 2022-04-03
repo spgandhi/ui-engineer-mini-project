@@ -6,7 +6,6 @@ import { CharactersService } from '../characters.service';
 @Component({
   selector: 'app-individual',
   templateUrl: './individual.component.html',
-  styleUrls: ['./individual.component.scss']
 })
 export class IndividualComponent implements OnInit {
   character: Character;
