@@ -1,5 +1,7 @@
 .app-header {
-  @apply py-8 md:py-16 text-center bg-white text-neutral-100 font-bold;
+  @apply py-8 md:py-16 text-center  text-neutral-100 font-bold;
+  background: white url('/assets/images/hero-image.svg') no-repeat center center;
+  background-size: contain;
 }
 
 .app-nav {
