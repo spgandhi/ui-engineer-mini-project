@@ -80,25 +80,14 @@ export class CharactersComponent implements OnInit {
   }
 
   handleSearch(): void {
-    console.log('bow searrching');
-    this.debounce(() => {
-      this.router.navigate([], {
-        queryParams: {
-          nameSearch: this.searchTerm,
-          fromPage: 1
-        },
-        relativeTo: this.route,
-        queryParamsHandling: 'merge'
-      })
-    }, 300)
-  }
+    this.router.navigate([], {
+      queryParams: {
+        nameSearch: this.searchTerm,
+        fromPage: 1
+      },
+      relativeTo: this.route,
+      queryParamsHandling: 'merge'
+    })
 
-  debounce(callback: Function, delay: number) {
-    console.log('called', typeof callback, delay);
-    let timeout;
-    return function () {
-      clearTimeout(timeout);
-      timeout = setTimeout(callback, delay);
-    }
   }
 }
