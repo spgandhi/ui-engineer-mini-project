@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '../api_responses/character';
 import { CharactersService } from '../characters.service';
 
@@ -10,17 +10,28 @@ import { CharactersService } from '../characters.service';
 })
 export class IndividualComponent implements OnInit {
   character: Character;
+  id: number;
 
-  constructor(private route: ActivatedRoute, private charactersService: CharactersService) { }
+  constructor(private route: ActivatedRoute, private charactersService: CharactersService, private router: Router) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.getCharacter(id);
+    this.route.params.subscribe(params => {
+      this.id = parseInt(params.id);
+      this.getCharacter(this.id.toString());
+    })
   }
 
   getCharacter(id: string): void {
-   this.charactersService.getCharacter(id).subscribe(character => {
-     this.character = character;
+    this.charactersService.getCharacter(id).subscribe(character => {
+      this.character = character;
     });
+  }
+
+  handleGoBack(): void {
+    this.router.navigate(['/characters']);
+  }
+
+  handleGoToCharacter(id: string): void {
+    this.router.navigate(['/character', id]);
   }
 }

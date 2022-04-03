@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,10 @@ export class AppComponent implements OnInit {
   characterPage = 1;
   characterNameSearch = '';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, public location: Location) { }
 
   ngOnInit() {
+    this.location = this.location;
     this.route.queryParams
       .subscribe(params => {
         if (params.fromPage) {

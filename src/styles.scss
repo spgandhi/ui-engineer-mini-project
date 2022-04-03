@@ -37,7 +37,7 @@
 @tailwind utilities;
 @layer base {
   body {
-    @apply bg-neutral-100 text-white;
+    @apply bg-neutral-100 text-white mb-16;
   }
   h1,
   .h1 {
@@ -63,16 +63,61 @@
   .h6 {
     @apply text-xl;
   }
-  input {
+  input,
+  select {
     @apply rounded-md px-4 py-3 text-neutral-100;
   }
   .app-container {
     @apply container mx-auto max-w-[1024px];
   }
-  button {
+  button,
+  button[type=submit] {
     @apply px-4 py-2 rounded-md bg-primary-40;
   }
   button.wide {
     @apply px-20;
+  }
+  table {
+    @apply border border-neutral-40 rounded-md border-separate;
+    border-spacing: 0;
+    &.clickable {
+      tr {
+        &:hover {
+          @apply bg-neutral-40 cursor-pointer text-primary-40;
+        }
+      }
+    }
+    & td {
+      @apply px-4 py-3 border-b border-neutral-40;
+    }
+  }
+  a {
+    @apply text-primary-40 cursor-pointer;
+    &.with-icon {
+      @apply flex gap-x-2;
+    }
+    &:hover {
+      @apply underline;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
+
+@layer components {
+  .app-pagination-wrapper {
+    @apply flex justify-center gap-x-4;
+    & a {
+      @apply inline-flex items-center justify-center min-w-[1.5rem];
+      &:hover {
+        @apply text-primary-40 cursor-pointer;
+      }
+      &.active {
+        @apply text-primary-40;
+        @apply border-b border-primary-40
+      }
+    }
   }
 }

@@ -1,1 +1,15 @@
-div.individual div.card { margin: 0px auto; width: 300px; }
+div.individual div.card {
+  margin: 0px auto;
+  max-width: 600px;
+  @apply bg-neutral-40 rounded-xl p-8;
+  & .card-body {
+    @apply pt-12 py-4 flex flex-col gap-y-4;
+  }
+  & .card-subtitle {
+    @apply flex justify-center gap-x-4;
+  }
+}
+
+img {
+  @apply rounded-[100px] w-[300px] mx-auto;
+}

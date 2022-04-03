@@ -1,11 +1,13 @@
 .app-header {
-  @apply py-24 text-center bg-white text-neutral-100 font-bold;
+  @apply py-16 text-center bg-white text-neutral-100 font-bold;
 }
 
 .app-nav {
   @apply flex items-center justify-center gap-x-12 py-14;
-
   & .nav-link {
-    @apply text-4xl;
+    @apply text-2xl text-neutral-20;
+    &.active {
+      @apply text-white border-b-4 border-primary-40;
+    }
   }
 }

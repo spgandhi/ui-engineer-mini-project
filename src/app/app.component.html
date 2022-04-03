@@ -4,11 +4,11 @@
 
 <div class="app-container">
 
-<div class="app-nav">
-  <a routerLink="/characters" [queryParams]="{ fromPage : characterPage, nameSearch : characterNameSearch }" class="nav-link">Characters</a>
-  <a routerLink="/episodes" class="nav-link">Episode Guide</a>
-</div>
+  <div class="app-nav">
+    <a routerLink="/characters" [queryParams]="{ fromPage : characterPage, nameSearch : characterNameSearch }" [ngClass]="{'nav-link': true, 'active': location.path().indexOf('/character') > -1 }">Characters</a>
+    <a routerLink="/episodes" [ngClass]="{'nav-link': true, 'active': location.path().indexOf('/episode') > -1 }">Episode Guide</a>
+  </div>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 </div>
