@@ -68,7 +68,7 @@
     @apply rounded-md px-4 py-3 text-neutral-100;
   }
   .app-container {
-    @apply container mx-4 md:mx-auto max-w-[1024px];
+    @apply container px-4 md:mx-auto max-w-[1024px];
   }
   button,
   button[type=submit] {
