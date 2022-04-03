@@ -26,12 +26,4 @@ export class IndividualComponent implements OnInit {
       this.character = character;
     });
   }
-
-  handleGoBack(): void {
-    this.router.navigate(['/characters']);
-  }
-
-  handleGoToCharacter(id: string): void {
-    this.router.navigate(['/character', id]);
-  }
 }

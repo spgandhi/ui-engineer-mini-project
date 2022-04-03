@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="flex justify-between mt-8">
-        <a (click)="handleGoToCharacter(id - 1)" class="with-icon">
+        <a class="with-icon" [routerLink]="['/character', id - 1]">
           <left-arrow-icon></left-arrow-icon> Previous
         </a>
-        <a (click)="handleGoToCharacter(id + 1)" class="with-icon">
+        <a class="with-icon" [routerLink]="['/character', id + 1]">
           Next <right-arrow-icon></right-arrow-icon>
         </a>
       </div>

@@ -1,39 +1,23 @@
-<div>
+<div class="flex flex-col gap-y-8">
 
-  <div class="flex justify-between items-center mb-10">
+  <div class="flex justify-between items-center">
     <form class="app-search-wrapper">
       <input name="name-search" placeholder="Search By Name" type="text" autocomplete="off" [(ngModel)]="searchTerm" (keyup)="handleSearch()" />
-      <button class="wide" type="submit">Search</button>
     </form>
-    <ng-container *ngIf="pages">
-      <div class="app-pagination-wrapper">
-        <a [ngClass]="{'disabled': (paginationObject.currentPage === 1)}" (click)="handlePageChange(paginationObject.currentPage - 1)">
-          <left-arrow-icon></left-arrow-icon>
-        </a>
-        <div class="flex items-center justify-center gap-x-2">
-          Page
-          <select [(ngModel)]="pageNumberInput" (change)="handlePageChange(pageNumberInput)">
-              <option *ngFor="let p of [].constructor(paginationObject.totalPages); let i = index" [ngValue]="i+1">{{i+1}}</option>
-            </select>
-        </div>
 
-        <!-- <span *ngIf="paginationObject.startPage > 1">...</span> -->
-        <!-- <a *ngFor="let p of paginationObject.pages" [ngClass]="{'active': (p === paginationObject.currentPage)}" (click)="handlePageChange(p)">{{p}}</a> -->
-        <!-- <span *ngIf="paginationObject.endPage < paginationObject.totalPages">...</span> -->
-        <a [ngClass]="{'disabled': (paginationObject.totalPages === paginationObject.currentPage)}" (click)="handlePageChange(paginationObject.currentPage + 1)">
-          <right-arrow-icon></right-arrow-icon>
-        </a>
-      </div>
+    <ng-container *ngIf="paginationObject">
+      <pagination [data]="paginationObject" (onPageChange)="handlePageChange($event)"></pagination>
     </ng-container>
+
   </div>
 
-  <div *ngIf="searchTerm">showing {{characterCall.results.length}} results for "{{searchTerm}}"</div>
+  <div class="" *ngIf="searchTerm">showing results for "{{searchTerm}}"</div>
 
   <div *ngIf="errorMessage">{{errorMessage}}</div>
 
   <table *ngIf="characterCall" class="clickable w-full">
     <tbody *ngIf="characterCall.results">
-      <tr *ngFor="let c of characterCall.results" [routerLink]="['/character', c.id]" [queryParams]="{ fromPage : currentPage, nameSearch : searchTerm }">
+      <tr *ngFor="let c of characterCall.results" [routerLink]="['/character', c.id]" [queryParams]="{ fromPage : paginationObject.currentPage, nameSearch : searchTerm }">
         <td>{{c.name}}</td>
         <td>{{c.species}}</td>
         <td>{{c.status}}</td>
@@ -41,6 +25,5 @@
       </tr>
     </tbody>
   </table>
-
 
 </div>

@@ -9,6 +9,7 @@ import { EpisodesComponent } from './episodes/episodes.component';
 import { IndividualComponent } from './individual/individual.component';
 import { RightArrowIcon } from './components/icons/right-arrow-icon/right-arrow-icon';
 import { LeftArrowIcon } from './components/icons/left-arrow-icon/left-arrow-icon';
+import { Pagination } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LeftArrowIcon } from './components/icons/left-arrow-icon/left-arrow-ico
     EpisodesComponent,
     IndividualComponent,
     RightArrowIcon,
-    LeftArrowIcon
+    LeftArrowIcon,
+    Pagination
   ],
   imports: [
     BrowserModule,
