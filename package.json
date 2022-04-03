@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:prod": "ng build --prod --output-path=dist/ --base-href=/",
+    "deploy": "yarn run build:prod && cp ./CNAME ./dist && surge ./dist"
   },
   "private": true,
   "dependencies": {
