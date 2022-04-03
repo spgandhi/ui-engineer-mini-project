@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterApiResponse } from '../api_responses/characterapiresponse';
-import { PaginationObject, PaginationInitObject } from '../api_responses/paginationObject';
+import { PaginationObject } from '../api_responses/paginationObject';
 import { CharactersService } from '../characters.service';
 import helper from './helper';
 
@@ -14,7 +14,7 @@ import helper from './helper';
 export class CharactersComponent implements OnInit {
   characterCall: CharacterApiResponse;
   searchTerm = '';
-  paginationObject: PaginationObject | PaginationInitObject = {
+  paginationObject: PaginationObject = {
     currentPage: 1,
   };
   errorMessage = '';
