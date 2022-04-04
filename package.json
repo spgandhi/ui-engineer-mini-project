@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "ng build --prod --output-path=dist/ --base-href=/",
-    "deploy": "yarn run build:prod && cp ./CNAME ./dist && surge ./dist"
+    "deploy": "yarn run build:prod && cp ./CNAME ./dist && cp ./dist/index.html ./dist/200.html && surge ./dist"
   },
   "private": true,
   "dependencies": {
